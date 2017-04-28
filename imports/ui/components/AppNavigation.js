@@ -30,7 +30,7 @@ const MediaNavigation = () => (
             <Form componentClass="fieldset" inline>
                 <FormGroup bsSize="small">
                     <InputGroup>
-                        <FormControl type="text" />
+                        <FormControl type="text" placeholder="Search..." />
                         <InputGroup.Addon>
                             <FontAwesome name='search' />
                         </InputGroup.Addon>
@@ -39,7 +39,7 @@ const MediaNavigation = () => (
             </Form>
         </NavItem>
                                      
-        <NavItem eventKey={7}>
+        <NavItem eventKey={7} href="https://twitter.com/TheDGL_org">
             <FontAwesome name='twitter' />
         </NavItem>
                                      
