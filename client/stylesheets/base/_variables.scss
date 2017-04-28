@@ -1,0 +1,40 @@
+// ---------------------------------------------------- SASS Colours
+
+$dglWhite                             : rgb(255, 255, 255);
+$dglDark                              : rgb(34,34,34);
+$dglOrange                            : rgb(242, 98, 34);
+$dglBlue                              : rgb(42, 159, 214);
+$dglRed                               : rgb(204, 51, 51);
+
+$danger-color                         : rgb(204, 0, 0); // Danger colour
+$warning-color                        : rgb(255, 136, 0); // Warning colour
+$primary-color                        : rgb(42, 159, 214); // Primary colour
+$info-color                           : rgb(153, 51, 204); // Info colour
+$success-color                        : rgb(119, 179, 0); // Success colour
+
+
+// ---------------------------------------------------- SASS Variables
+
+$background-color                     : $dglDark;
+$text-color                           : $dglWhite;
+
+$content-font                         : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$title-font                           : 'HandelGotD-Ligh';
+$footer-height                        : 130px;
+$header-height                        : 75px;
+$logo-width                           : 115px;
+$hovermenu-height                     : 200px; // Height of the main-menu submenus
+
+$default-text-shadow-color            : rgba($dglDark, 0.6);
+$default-text-shadow-blur             : 3px;
+$default-text-shadow-v-offset         : 1px;
+
+@font-face {
+  font-family: 'HandelGotD-Ligh';
+  src: url('../fonts/HandelGotD-Ligh.eot'); /* IE 5-8 */ 
+  src: local('☺'),             /* sneakily trick IE */
+        url('../fonts/HandelGotD-Ligh.woff') format('woff'),    /* FF 3.6, Chrome 5, IE9 */
+        url('../fonts/HandelGotD-Ligh.ttf') format('truetype'), /* Opera, Safari */
+        url('../fonts/HandelGotD-Ligh.svg#font') format('svg'); /* iOS */
+}
+
