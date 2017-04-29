@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar, Nav, NavItem, FormGroup, FormControl, InputGroup, Form } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import container from '../../modules/container';
@@ -8,19 +8,18 @@ import FontAwesome from 'react-fontawesome';
 
 const AppFooter = ({ hasUser }) => (
     <footer>
-       <div class="container">
-
-            <div className="row">
-                <div id="footer-branding" className="col-md-4">
+       <div className="container">
+            <Row>
+                <Col id="footer-branding" md={4} xs={12}>
                     <img src="/images/logo.svg" />
                     <p>
                         Copyright &copy; 2017 The Digital Gaming League.
                         <br />
                         All Rights Reserved.
                     </p>
-                </div> 
+                </Col> 
 
-                <div className="col-md-2">
+                <Col md={2} mdOffset={2}>
                     <header>Questions?</header>
                     <ul>
                         <li>About Us</li>
@@ -28,9 +27,9 @@ const AppFooter = ({ hasUser }) => (
                         <li>Staff</li>
                         <li>Ban List</li>
                     </ul>
-                </div>
+                </Col>
     
-                <div className="col-md-2">
+                <Col md={2}>
                     <header>Social</header>
                     <ul>
                         <li>Twitch</li>
@@ -39,9 +38,9 @@ const AppFooter = ({ hasUser }) => (
                         <li>YouTube</li>
                         <li>Steam Group</li>
                     </ul>
-                </div>
+                </Col>
 
-                <div className="col-md-2">
+                <Col md={2}>
                     <header>Events</header>
                     <ul>
                         <li>NA Season 9</li>
@@ -50,16 +49,9 @@ const AppFooter = ({ hasUser }) => (
                         <li>LHL Season 26</li>
                         <li>RSL Season 25</li>
                     </ul>
-                </div>
-
-                <div className="col-md-2">
-                    <header>Partners</header>
-                    <ul>
-                        <li>Oorah Gaming</li>
-                    </ul>
-                </div>
+                </Col>
     
-            </div>
+            </Row>
 
         </div>
     </footer>           

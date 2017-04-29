@@ -22,13 +22,13 @@ const PublicNavigation = () => (
                 Forum
             </NavItem>
         </LinkContainer>
-
-        <LinkContainer to="/">
-            <img id="logo" src="/images/logo.svg" />
-        </LinkContainer>
     
         <LinkContainer to="login">
             <NavItem eventKey={4}>Login</NavItem>
+        </LinkContainer>
+
+        <LinkContainer to="/">
+            <img id="logo" src="/images/logo.svg" />
         </LinkContainer>
 
     </Nav>

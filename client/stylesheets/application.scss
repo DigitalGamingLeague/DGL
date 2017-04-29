@@ -9,3 +9,9 @@
 @import "module/Signup";
 
 @import "state/Navbar";
+
+.document-body
+{
+    margin-top: $header-height;
+    background: $background-color;
+}

@@ -7,7 +7,7 @@ import AppFooter from '../components/AppFooter';
 const App = ({ children }) => (
   <div>
     <AppNavigation />
-    <Grid>
+    <Grid className="document-body">
       { children }
     </Grid>
     <AppFooter />
