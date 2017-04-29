@@ -10,6 +10,11 @@
 
 @import "state/Navbar";
 
+body
+{
+    background: rgb(200,200,200) !important;
+}
+
 .document-body
 {
     margin-top: $header-height;

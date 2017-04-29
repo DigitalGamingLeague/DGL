@@ -25,8 +25,20 @@ const AppNavigation = ({ hasUser }) => (
 const MediaNavigation = () => (
 
     <Nav pullRight id="right-nav">
+                                     
+        <NavItem eventKey={6} href="https://www.twitch.tv/the_dgl">
+            <FontAwesome name='twitch' />
+        </NavItem>  
+                                     
+        <NavItem eventKey={7} href="https://twitter.com/TheDGL_org">
+            <FontAwesome name='twitter' />
+        </NavItem>
+                                     
+        <NavItem eventKey={8}>
+            <FontAwesome name='sitemap' />
+        </NavItem>
     
-        <NavItem eventKey={6}>
+        <NavItem eventKey={9}>
             <Form componentClass="fieldset" inline>
                 <FormGroup bsSize="small">
                     <InputGroup>
@@ -37,18 +49,6 @@ const MediaNavigation = () => (
                     </InputGroup>
                 </FormGroup>
             </Form>
-        </NavItem>
-                                     
-        <NavItem eventKey={7} href="https://www.twitch.tv/the_dgl">
-            <FontAwesome name='twitch' />
-        </NavItem>  
-                                     
-        <NavItem eventKey={8} href="https://twitter.com/TheDGL_org">
-            <FontAwesome name='twitter' />
-        </NavItem>
-                                     
-        <NavItem eventKey={9}>
-            <FontAwesome name='sitemap' />
         </NavItem>
 
     </Nav>

@@ -15,7 +15,7 @@ $success-color                        : rgb(119, 179, 0); // Success colour
 
 // ---------------------------------------------------- SASS Variables
 
-$background-color                     : $dglDark;
+$background-color                     : lighten($dglDark, 5);
 $text-color                           : $dglWhite;
 
 $content-font                         : 'Helvetica Neue', Helvetica, Arial, sans-serif;

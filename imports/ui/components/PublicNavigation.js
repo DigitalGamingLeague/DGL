@@ -6,19 +6,19 @@ const PublicNavigation = () => (
     <Nav>
     
         <LinkContainer to="games">
-            <NavItem eventKey={1}>
+            <NavItem className="divide" eventKey={1}>
                 Games 
             </NavItem>
         </LinkContainer>
 
         <LinkContainer to="watch">
-            <NavItem eventKey={2}>
+            <NavItem className="divide" eventKey={2}>
                 Watch
             </NavItem>
         </LinkContainer>
 
         <LinkContainer to="forum">
-            <NavItem eventKey={3}>
+            <NavItem className="divide" eventKey={3}>
                 Forum
             </NavItem>
         </LinkContainer>
