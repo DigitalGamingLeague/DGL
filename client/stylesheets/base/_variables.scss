@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
 // ---------------------------------------------------- SASS Colours
 
 $dglWhite                             : rgb(255, 255, 255);
@@ -18,23 +20,10 @@ $success-color                        : rgb(119, 179, 0); // Success colour
 $background-color                     : lighten($dglDark, 5);
 $text-color                           : $dglWhite;
 
-$content-font                         : 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$title-font                           : 'HandelGotD-Ligh';
+$content-font                         : Helvetica, Arial, sans-serif;
+$title-font                           : 'Open Sans Condensed', sans-serif;
 $footer-height                        : 130px;
-$header-height                        : 75px;
+$header-height                        : 85px;
 $logo-width                           : 115px;
-$hovermenu-height                     : 200px; // Height of the main-menu submenus
 
-$default-text-shadow-color            : rgba($dglDark, 0.6);
-$default-text-shadow-blur             : 3px;
-$default-text-shadow-v-offset         : 1px;
-
-@font-face {
-  font-family: 'HandelGotD-Ligh';
-  src: url('../fonts/HandelGotD-Ligh.eot'); /* IE 5-8 */ 
-  src: local('☺'),             /* sneakily trick IE */
-        url('../fonts/HandelGotD-Ligh.woff') format('woff'),    /* FF 3.6, Chrome 5, IE9 */
-        url('../fonts/HandelGotD-Ligh.ttf') format('truetype'), /* Opera, Safari */
-        url('../fonts/HandelGotD-Ligh.svg#font') format('svg'); /* iOS */
-}
 

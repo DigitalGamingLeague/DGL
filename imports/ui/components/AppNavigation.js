@@ -11,7 +11,7 @@ import FontAwesome from 'react-fontawesome';
 const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
 
 const AppNavigation = ({ hasUser }) => (
-    <Navbar fixedTop>
+    <Navbar id="navigation" fixedTop>
         <Navbar.Header>
             <Navbar.Toggle />
         </Navbar.Header>

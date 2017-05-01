@@ -10,7 +10,7 @@ const AppFooter = ({ hasUser }) => (
     <footer>
        <div className="container">
             <Row>
-                <Col id="footer-branding" md={4} xs={12}>
+                <Col id="footer-branding" md={3} xs={12}>
                     <img src="/images/logo.svg" />
                     <p>
                         Copyright &copy; 2017 The Digital Gaming League.
@@ -19,7 +19,7 @@ const AppFooter = ({ hasUser }) => (
                     </p>
                 </Col> 
 
-                <Col md={2} mdOffset={2}>
+                <Col md={2} mdOffset={1} className="divide">
                     <header>Questions?</header>
                     <ul>
                         <li>About Us</li>
@@ -29,25 +29,23 @@ const AppFooter = ({ hasUser }) => (
                     </ul>
                 </Col>
     
-                <Col md={2}>
+                <Col md={2} className="divide">
                     <header>Social</header>
                     <ul>
                         <li>Twitch</li>
                         <li>Twitter</li>
-                        <li>Facebook</li>
                         <li>YouTube</li>
                         <li>Steam Group</li>
                     </ul>
                 </Col>
 
-                <Col md={2}>
+                <Col md={2} className="divide">
                     <header>Events</header>
                     <ul>
                         <li>NA Season 9</li>
                         <li>EU Season 9</li>
                         <li>AU/NZ Season 9</li>
                         <li>LHL Season 26</li>
-                        <li>RSL Season 25</li>
                     </ul>
                 </Col>
     

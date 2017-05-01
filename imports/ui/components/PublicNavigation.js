@@ -17,9 +17,9 @@ const PublicNavigation = () => (
             </NavItem>
         </LinkContainer>
 
-        <LinkContainer to="forum">
+        <LinkContainer to="events">
             <NavItem className="divide" eventKey={3}>
-                Forum
+                Events
             </NavItem>
         </LinkContainer>
     

@@ -9,7 +9,6 @@ const App = ({ children }) => (
     <div>
         <AppNavigation />
             <Grid className="document-body">
-                <Breadcrumbs />
                 { children }
             </Grid>
         <AppFooter />

@@ -7,16 +7,18 @@
 @import "module/PageHeader";
 @import "module/Footer";
 @import "module/Signup";
+@import "module/Navbar";
 
-@import "state/Navbar";
+@import "pages/index";
 
 body
 {
-    background: rgb(200,200,200) !important;
+    background-color: rgb(0,0,0);
+    background-image: url('images/brilliant.png'); 
 }
 
 .document-body
 {
+    padding: 0px;
     margin-top: $header-height;
-    background: $background-color;
 }
