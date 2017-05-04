@@ -11,10 +11,17 @@
 
 @import "pages/index";
 
+html 
+{
+    position: relative;
+    min-height: 100%;
+}
+
 body
 {
     background-color: rgb(0,0,0);
     background-image: url('images/brilliant.png'); 
+    margin-bottom: $footer-height;
 }
 
 .document-body

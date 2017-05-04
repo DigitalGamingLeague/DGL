@@ -3,9 +3,10 @@
 // ---------------------------------------------------- SASS Colours
 
 $dglWhite                             : rgb(255, 255, 255);
+$dglLight                             : rgb(230, 230, 230);
 $dglDark                              : rgb(34,34,34);
 $dglOrange                            : rgb(242, 98, 34);
-$dglBlue                              : rgb(42, 159, 214);
+$dglBlue                              : rgb(53, 176, 234);
 $dglRed                               : rgb(204, 51, 51);
 
 $danger-color                         : rgb(204, 0, 0); // Danger colour
@@ -17,8 +18,8 @@ $success-color                        : rgb(119, 179, 0); // Success colour
 
 // ---------------------------------------------------- SASS Variables
 
-$background-color                     : lighten($dglDark, 5);
-$text-color                           : $dglWhite;
+$background-color                     : rgb(33, 30, 29);
+$text-color                           : rgb(216, 212, 207);
 
 $content-font                         : Helvetica, Arial, sans-serif;
 $title-font                           : 'Open Sans Condensed', sans-serif;
