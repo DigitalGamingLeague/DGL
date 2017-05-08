@@ -3,6 +3,21 @@ import { Carousel } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
+var Tweets = new Mongo.Collection('tweets');
+
+Meteor.subscribe('listTweets', {
+
+    onReady: function () {
+    // called when data is ready to be fetched
+        console.log("*** Tweets:");
+        console.log(Tweets.find().fetch());
+    },
+
+    onStop: function () {
+    // called when data publication is stopped
+    }
+});
+
 const Index = () => (
     <div className="Index">
     
@@ -83,4 +98,5 @@ const MatchResult = () => (
         </div>
     </Col>
 );
+
 export default Index;
