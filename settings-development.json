@@ -1,4 +1,14 @@
 {
-  "public": {},
-  "private": {}
+    "public": 
+    {},
+    "private": 
+    {
+        "twitter":
+        {
+            "consumer_key": "N5awbf84NPyb1TXXPzF2Asy9P",
+            "consumer_secret": "tdS9ykUnLYZykIHxrUSzGF8whJNjNGde6UyWZURzbSgvm8WSB7",
+            "access_token_key": "1805582875-HJEBw4nWVqzmRoVeHEf32fNcdveEz2PylNqe2fS",
+            "access_token_secret": "jRfTEkuRb9kybVKVk06HathCJl359LEy5rd9kFafd2tYO"
+        }
+    }
 }

@@ -8,11 +8,10 @@ footer
 	width: 100%;
 	padding-top: 20px;
 	box-shadow: 0px 0px 4px black;
-	height: $footer-height;
+	height: $footer-height !important;
 	background-color: $background-color;
 	border-top: 1px solid rgba(255,255,255,.2);
 	color: $dglWhite;
-	overflow: hidden;
     font-family: $title-font !important;
 
         
