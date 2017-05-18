@@ -16,14 +16,41 @@ const AppNavigation = ({ hasUser }) => (
             <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
+            <GlobalNavigation />
             { renderNavigation(hasUser) }
             <MediaNavigation />
         </Navbar.Collapse>
     </Navbar>
 );
                                      
-const MediaNavigation = () => (
+const GlobalNavigation = () => (
+    <Nav>
+        <LinkContainer to="games">
+            <NavItem className="divide" eventKey={1}>
+                Games 
+            </NavItem>
+        </LinkContainer>
 
+        <LinkContainer to="watch">
+            <NavItem className="divide" eventKey={2}>
+                Watch
+            </NavItem>
+        </LinkContainer>
+
+        <LinkContainer to="events">
+            <NavItem className="divide" eventKey={3}>
+                Events
+            </NavItem>
+        </LinkContainer>   
+
+        <LinkContainer to="/">
+            <img id="logo" src="/images/logo.svg" />
+        </LinkContainer>                               
+    </Nav>                                    
+);
+                                     
+const MediaNavigation = () => (
+                                     
     <Nav pullRight id="right-nav">
                                      
         <NavItem eventKey={6} href="https://www.twitch.tv/the_dgl">
