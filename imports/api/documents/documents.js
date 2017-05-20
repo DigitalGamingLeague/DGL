@@ -18,14 +18,53 @@ Documents.deny({
 });
 
 Documents.schema = new SimpleSchema({
-  title: {
-    type: String,
-    label: 'The title of the document.',
-  },
-  body: {
-    type: String,
-    label: 'The body of the document.',
-  },
+    title: 
+    {
+        type: String,
+        label: 'Title of the document.',
+    },
+    
+    body: 
+    {
+        type: String,
+        label: 'Body of the document.',
+    },
+    
+    author: 
+    {
+        type: String,
+        label: 'Author of the document.',
+    },
+    
+    /*  tags: Array,
+    
+    'tags.$': String,
+    
+    created: 
+    {
+        type: Date,
+        label: "Date the document was created",
+        autoValue: function() 
+        {
+            if ( this.isInsert ) 
+            {
+                return new Date;
+            } 
+        }
+    },
+    
+    updated: 
+    {
+        type: Date,
+        label: "Date the document was updated",
+        autoValue: function() 
+        {
+            if ( this.isUpdate ) 
+            {
+                return new Date;
+            } 
+        }
+    }*/
 });
 
 Documents.attachSchema(Documents.schema);

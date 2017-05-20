@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import { Timeline } from 'react-twitter-widgets';
+import NewsList from '../components/NewsList';
 
 const Index = () => (
     <div className="Index">
@@ -50,6 +51,9 @@ const Index = () => (
             <Row>
 
                 <Col md={8} id="news">
+    
+                    <NewsList />                
+    
                 </Col>
 
                 <Col md={4} id="twitter">

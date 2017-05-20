@@ -9,6 +9,8 @@ export const upsertDocument = new ValidatedMethod({
     _id: { type: String, optional: true },
     title: { type: String, optional: true },
     body: { type: String, optional: true },
+    author: { type: String, optional: true },
+    tags: { type: Array, optional: true },
   }).validator(),
   run(document) {
     return Documents.upsert({ _id: document._id }, { $set: document });
