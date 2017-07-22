@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+// ---------------------------------------------------- SASS Colours
+
+$brand-primary                        : rgb(242, 93, 33); // Branding accent colour
+$brand-accent                         : rgb(34, 176, 195); // Branding complementary colour
+$brand-accent2                        : rgb(106, 190, 53); // Branding complementary colour
+$brand-light                          : rgb(211, 202, 170); // Branding light colour
+
+$danger-color                         : rgb(204, 0, 0); // Danger colour
+$warning-color                        : rgb(255, 136, 0); // Warning colour
+$primary-color                        : rgb(42, 159, 214); // Primary colour
+$info-color                           : rgb(153, 51, 204); // Info colour
+$success-color                        : rgb(119, 179, 0); // Success colour
+
+
+$bg-dark                              : rgb(30, 29, 29);
+$bg-darker                            : rgb(20, 19, 19);
+$bg-light                             : rgb(198, 185, 173);
+$bg-subtle-light                      : rgba(255,255,255,0.1);
+
+$text-primary                         : rgb(216, 212, 207);
+$text-disabled                        : rgb(101, 97, 92);
+$text-inverse                         : rgb(20, 19, 19);
+
+// ---------------------------------------------------- SASS Variables
+
+$content-font                         : Helvetica, Arial, sans-serif;
+$title-font                           : 'Open Sans Condensed', sans-serif;
+$footer-height                        : 130px;
+$header-height                        : 85px;
+$logo-width                           : 175px;
+
+

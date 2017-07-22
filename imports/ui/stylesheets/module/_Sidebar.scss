@@ -1,0 +1,125 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+
+#sidebar
+{
+    position: fixed;
+    width: inherit;
+    top: 0px;
+    left: 0px;
+    min-height: 100vh;
+    background: $bg-darker;
+    border-right: 8px solid $bg-dark;
+    box-shadow: 1px 0px 0px 0px rgba($brand-primary,.2);
+    padding-top: $header-height;
+        
+    section
+    {
+        width: 100%;
+        text-align: center;
+        
+        h4 
+        {
+            color: $text-primary !important;
+        }
+    }
+    
+    #sidebar-public
+    {
+        min-height: 100vh;
+        
+        #sidebar-breadcrumbs 
+        {
+            min-height: 60vh;
+        }
+        
+        #profile 
+        {
+            min-height: 30vh;
+            
+            a 
+            {
+                color: $text-disabled !important;
+                
+                &:hover
+                {
+                    color: $brand-accent !important;
+                    text-decoration: none;
+                }
+            }
+            
+            .fa
+            {
+                color: $bg-dark;
+                font-size: 10rem; 
+            }
+        }
+    }
+    
+    #sidebar-private
+    {
+        min-height: 100vh;
+        
+        #sidebar-breadcrumbs 
+        {
+            min-height: 10vh;
+        }
+        
+        #profile-stats 
+        {
+            min-height: 30vh;
+            
+            .fa
+            {
+                font-size: 10rem;  
+                color: $text-disabled;
+            }
+        }
+        
+        #team-profile 
+        {
+            min-height: 20vh;
+            
+            h4 
+            {
+                cursor: pointer;
+                
+                &:hover
+                {
+                    color: $brand-accent !important;
+                    text-decoration: none;
+                }
+            }
+            
+            .fa
+            {
+                font-size: 10rem;  
+                color: $bg-dark !important;
+            }
+        }
+        
+        #profile 
+        {
+            min-height: 30vh;
+            
+            h5 
+            {
+                color: $text-primary !important;
+                cursor: pointer;
+                
+                &:hover
+                {
+                    color: $brand-accent !important;
+                    text-decoration: none;
+                }
+            }
+            
+            .fa
+            {
+                color: $brand-primary;
+                font-size: 10rem; 
+            }
+        }
+    }
+}

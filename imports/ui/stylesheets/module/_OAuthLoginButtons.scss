@@ -1,0 +1,74 @@
+.OAuthLoginButtons {
+  margin-bottom: 25px;
+
+  &.WithEmailMessage {
+    position: relative;
+    border-bottom: 1px solid $gray;
+    padding-bottom: 30px;
+
+    .EmailMessage {
+        display: inline-block;
+        background-color: $bg-darker;
+        background-image: url('/images/black-orchid.png');
+        padding: 0 10px;
+        position: absolute;
+        bottom: -19px;
+        left: 50%;
+    }
+  }
+}
+
+$facebook: #3b5998;
+$google: #ea4335;
+$github: $gray-dark;
+
+.OAuthLoginButton {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  background: $gray-lighter;
+  border-radius: 3px;
+
+  i {
+    margin-right: 3px;
+    font-size: 18px;
+    position: relative;
+    top: 1px;
+  }
+
+  &.OAuthLoginButton-facebook {
+    background: $facebook;
+    color: $text-primary;
+
+    &:hover { background: darken($facebook, 5%); }
+  }
+
+  &.OAuthLoginButton-google {
+    background: $google;
+    color: $text-primary;
+
+    &:hover { background: darken($google, 5%); }
+  }
+
+  &.OAuthLoginButton-github {
+    background: $github;
+    color: $text-primary;
+
+    &:hover { background: darken($github, 5%); }
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+}
+
+.OAuthLoginButton + .OAuthLoginButton {
+  margin-top: 10px;
+}

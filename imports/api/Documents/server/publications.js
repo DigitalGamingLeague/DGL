@@ -1,0 +1,22 @@
+import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+import Documents from '../Documents';
+
+Meteor.publish('documents', function documents() {
+  return Documents.find();
+});
+
+// Note: documents.view is also used when editing an existing document.
+Meteor.publish('documents.view', function documentsView(documentId) {
+  check(documentId, String);
+  return Documents.find({ _id: documentId });
+});
+
+// News
+Meteor.publish('news', function news() {
+    return Documents.find({}, 
+    {
+        limit: 3,
+        sort: { createdAt: -1 },
+    });
+});

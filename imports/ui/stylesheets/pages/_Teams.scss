@@ -1,0 +1,28 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.createteam
+{
+    margin: 50px;
+    
+    h1
+    {
+        color: $brand-accent;
+        margin-bottom: 40px;
+    } 
+    
+    h4
+    {
+        color: $brand-primary;
+    }
+    
+    #createteam-info
+    {
+        text-align: right;
+        
+        p
+        {
+            color: $text-primary;
+        }
+    }
+}
