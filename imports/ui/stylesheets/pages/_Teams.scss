@@ -1,10 +1,20 @@
 @import "../base/variables";
 @import "../base/mixins";
 
-.createteam
-{
-    margin: 50px;
     
+.teams-info
+{
+    text-align: right;
+
+    p
+    {
+        color: $text-primary;
+        margin-bottom: 25px;
+    }
+}
+
+.teams-create
+{
     h1
     {
         color: $brand-accent;
@@ -15,12 +25,74 @@
     {
         color: $brand-primary;
     }
-    
-    #createteam-info
+}
+
+.teams
+{
+    h2
     {
-        text-align: right;
+        color: $brand-primary;
+        font-family: $title-font;
+        margin-bottom: 50px;
+    }
+    
+    table
+    {
+        background: transparent !important;  
         
-        p
+        th 
+        {
+            color: $brand-primary;
+        }
+        td
+        {
+            vertical-align: middle !important;
+            
+            &.team-link
+            {
+                cursor: pointer;
+                
+                &:hover
+                {
+                    color: $brand-primary;
+                }
+            }
+            
+            &.team-info-buttons
+            {
+                text-align: right;
+                
+                .btn
+                {
+                    color: $text-inverse;
+                    font-weight: 700;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.teams-view
+{
+    #teams-view-emblem
+    {
+        text-align: center;
+        
+        .fa
+        {
+            color: $text-disabled;
+            font-size: 20rem; 
+        }
+    }
+    
+    h2
+    {
+        color: $brand-primary;
+        font-family: $title-font;
+        margin-bottom: 50px;
+        
+        small
         {
             color: $text-primary;
         }

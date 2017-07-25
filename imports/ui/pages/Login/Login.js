@@ -7,6 +7,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import OAuthLoginButtons from '../../components/OAuthLoginButtons/OAuthLoginButtons';
 import AccountPageFooter from '../../components/AccountPageFooter/AccountPageFooter';
 import validate from '../../../modules/validate';
+import { createContainer } from 'meteor/react-meteor-data';
 
 class Login extends React.Component {
   constructor(props) {
@@ -40,17 +41,17 @@ class Login extends React.Component {
     });
   }
 
-  handleSubmit() {
-    const { history } = this.props;
+    handleSubmit() {
+        const { history } = this.props;
 
-    Meteor.loginWithPassword(this.emailAddress.value, this.password.value, (error) => {
-      if (error) {
-        Bert.alert(error.reason, 'danger');
-      } else {
-        Bert.alert('Welcome back!', 'success');
-        history.push('/');
-      }
-    });
+        Meteor.loginWithPassword(this.emailAddress.value, this.password.value, (error) => {
+            if (error) {
+                Bert.alert(error.reason, 'danger');
+            } else {
+                Bert.alert('Welcome back!', 'success');
+                history.push('/');
+            }
+        });
   }
 
   render() {
@@ -82,9 +83,9 @@ class Login extends React.Component {
               />
             </FormGroup>
             <FormGroup>
-              <ControlLabel className="clearfix">
-                <span className="pull-left">Password</span>
-                <Link className="pull-right" to="/recover-password">Forgot password?</Link>
+              <ControlLabel>
+                <span>Password</span>
+                <Link className="forgot-password" to="/recover-password">Forgot password?</Link>
               </ControlLabel>
               <input
                 type="password"
@@ -105,7 +106,7 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  history: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
 };
 
 export default Login;

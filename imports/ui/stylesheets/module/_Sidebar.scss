@@ -5,14 +5,15 @@
 #sidebar
 {
     position: fixed;
+    display: flex;
     width: inherit;
+    background: $bg-darker;
     top: 0px;
     left: 0px;
-    min-height: 100vh;
-    background: $bg-darker;
+    min-height: 100%;
     border-right: 8px solid $bg-dark;
-    box-shadow: 1px 0px 0px 0px rgba($brand-primary,.2);
-    padding-top: $header-height;
+    box-shadow: 1px 0px 0px 0px rgba($brand-accent,.2);
+    margin-top: $header-height;
         
     section
     {
@@ -27,27 +28,23 @@
     
     #sidebar-public
     {
-        min-height: 100vh;
+        width: 100vw;
+        position: relative;
+        overflow: hidden;
+        display: flex; 
+        flex-direction: column;
+        flex-wrap: nowrap;
         
-        #sidebar-breadcrumbs 
+        #sidebar-breadcrumbs
         {
-            min-height: 60vh;
+            flex: 1;
         }
-        
-        #profile 
-        {
-            min-height: 30vh;
-            
-            a 
-            {
-                color: $text-disabled !important;
                 
-                &:hover
-                {
-                    color: $brand-accent !important;
-                    text-decoration: none;
-                }
-            }
+        #sidebar-user-avatar 
+        {
+            flex: none;
+            padding: 20px;
+            overflow: hidden;
             
             .fa
             {
@@ -59,38 +56,24 @@
     
     #sidebar-private
     {
-        min-height: 100vh;
+        width: 100vw;
+        position: relative;
+        overflow: hidden;
+        display: flex; 
+        flex-direction: column;
+        flex-wrap: nowrap;
         
-        #sidebar-breadcrumbs 
+        #sidebar-breadcrumbs
         {
-            min-height: 10vh;
+            flex: 1;
         }
         
-        #profile-stats 
+        #sidebar-team-avatar 
         {
-            min-height: 30vh;
-            
-            .fa
-            {
-                font-size: 10rem;  
-                color: $text-disabled;
-            }
-        }
-        
-        #team-profile 
-        {
-            min-height: 20vh;
-            
-            h4 
-            {
-                cursor: pointer;
-                
-                &:hover
-                {
-                    color: $brand-accent !important;
-                    text-decoration: none;
-                }
-            }
+            flex: none;
+            min-height: 75px;
+            overflow: hidden;
+            padding: 20px;
             
             .fa
             {
@@ -99,26 +82,57 @@
             }
         }
         
-        #profile 
+        #sidebar-user-avatar 
         {
-            min-height: 30vh;
-            
-            h5 
-            {
-                color: $text-primary !important;
-                cursor: pointer;
-                
-                &:hover
-                {
-                    color: $brand-accent !important;
-                    text-decoration: none;
-                }
-            }
+            flex: none;
+            padding: 20px;
+            overflow: hidden;
             
             .fa
             {
-                color: $brand-primary;
+                color: $brand-accent;
                 font-size: 10rem; 
+                
+                &:hover
+                {
+                    color: $brand-primary;
+                    text-decoration: none;
+                }
+            }
+        }
+        
+        #sidebar-logout
+        {
+            flex: none;
+            height: 50px;
+            background-color: $bg-darker;
+            margin: 0px;
+            padding-top: 10px;
+            text-transform: uppercase;
+            
+            h6
+            {
+                display: inline;
+                cursor: pointer;
+                margin: 0px 10px 0px 10px;
+                color: $text-primary;
+                
+                a
+                {
+                    color: $text-primary;
+                    
+                    &:hover
+                    {
+                        color: $brand-primary;
+                        text-decoration: none;
+                    }
+                }
+                    
+                &:hover
+                {
+                    color: $brand-primary;
+                    text-decoration: none;
+                }
             }
         }
     }

@@ -88,7 +88,7 @@ class CreateTeam extends React.Component {
 
     render() {
         return (
-            <div className="createteam">
+            <div className="teams-create">
                 <Row>
                     <Col xs={12} sm={6} md={5} lg={4}>
 
@@ -135,9 +135,9 @@ class CreateTeam extends React.Component {
                         </form>
                     </Col>
 
-                    <Col id="createteam-info" xsHidden smHidden md={7} lg={8}>
+                    <Col className="teams-info" xsHidden smHidden md={7} lg={8}>
 
-                        <h1>Creating a Team</h1>
+                        <h2>Creating a Team</h2>
 
                         <p>
                             To participate in league events you will need to be part of a team.

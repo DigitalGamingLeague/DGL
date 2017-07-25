@@ -4,6 +4,7 @@ import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button, Popover, OverlayTrigger } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import StatusBar from '../../components/StatusBar/StatusBar';
 
 const constructionWarning = (
     <Popover className="construction-warning" title="Under Construction">
@@ -25,12 +26,14 @@ const PublicSidebar = () => (
     
         <section id="sidebar-breadcrumbs"></section>
     
-        <section id="profile">
-            <h4><a href="/login">Not logged in</a></h4>
+        <section id="sidebar-user-avatar">
             <div id="avatar">
                 <FontAwesome name="user-circle-o" />
             </div>
         </section>
+
+        <StatusBar /> 
+
     
     </div>
 );       
@@ -41,34 +44,26 @@ const AuthenticatedSidebar = ({ name }) => (
     
         <section id="sidebar-breadcrumbs"></section>
     
-        <OverlayTrigger placement="right" overlay={constructionWarning}>
-            <section id="profile-stats">
-                <h4> Stats </h4> 
-                <p> Wins</p>
-                <p> Losses</p>
-                <p> Games played</p>
-                <p> Member since</p>
-            </section>
-        </OverlayTrigger>
-
-        <OverlayTrigger placement="right" overlay={constructionWarning}>
-            <section id="team-profile">
-                <h4> Team name </h4> 
-                <div id="team-emblem">
-                    <FontAwesome name="users" />
-                </div>
-            </section>
-        </OverlayTrigger>
-    
-        <section id="profile">
-            <h4> { name } </h4> 
-            <div id="avatar">
-                <FontAwesome name="user-circle-o" />
-            </div>
-            <h5 onClick={() => Meteor.logout()}>
-                Logout
-            </h5>
+        <section id="sidebar-team-avatar">
+            <FontAwesome name="users" />
         </section>
+    
+        <section id="sidebar-user-avatar">
+            <a href="/profile">
+                <FontAwesome name="user-circle-o" />
+            </a>    
+        </section>
+
+        <section id="sidebar-logout">
+            <h6> 
+                <a href="/profile">{ name }</a> 
+            </h6> 
+            <h6 onClick={() => Meteor.logout()}>
+               Logout
+            </h6>
+        </section>
+
+        <StatusBar /> 
 
     </div>
 );

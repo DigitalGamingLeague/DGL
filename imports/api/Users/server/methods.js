@@ -9,10 +9,7 @@ Meteor.methods({
       emailAddress: String,
       password: Match.Optional(Object),
       profile: {
-        name: {
-          first: String,
-          last: String,
-        },
+        username: String,
       },
     });
 
@@ -30,4 +27,15 @@ rateLimit({
   ],
   limit: 5,
   timeRange: 1000,
+});
+
+Meteor.users.find({ "status.online": true }).observe({
+  added: function(id) {
+      //console.log('Hello ' + id.profile.username);
+      //console.log('IP: ' + id.status.lastLogin.ipAddr);
+    // id just came online
+  },
+  removed: function(id) {
+    // id just went offline
+  }
 });

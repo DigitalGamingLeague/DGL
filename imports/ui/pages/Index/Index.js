@@ -88,7 +88,6 @@ const GridboxAbout = () => (
 );
                                      
 const GridboxContact = () => ( 
-                                     
     <div className="gridbox" id="gridbox-contact">
         
         <h4>Have questions? Contact us.</h4>

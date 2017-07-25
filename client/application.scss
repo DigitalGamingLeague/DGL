@@ -18,6 +18,7 @@
 @import "../imports/ui/stylesheets/module/Signup";
 @import "../imports/ui/stylesheets/module/Navigation";
 @import "../imports/ui/stylesheets/module/Sidebar";
+@import "../imports/ui/stylesheets/module/StatusBar";
 @import "../imports/ui/stylesheets/module/OAuthLoginButtons";
 
 /* Page styles */
@@ -36,23 +37,26 @@ body
 {
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding-top: $header-height;
     background-image: url('/images/black-orchid.png');
     background-color: $bg-darker !important;
 }
 
 .content
 {
-    padding-left: 0px !important;
-    padding-top: $header-height;
+    padding: 50px;
     position: relative;
 }
-            
+     
+h1,h2,h3,h4,h5,h6
+{
+    font-family: $title-font !important;
+}
+
 h4
 {
     font-size: 2rem;
     font-weight: 400;
-    font-family: $title-font !important;
 }
 
 // Creates a border effect on an image
@@ -119,4 +123,9 @@ h4
 .construction-warning
 {
     color: $brand-accent;
+}
+
+.back-button
+{
+    color: $text-inverse;
 }

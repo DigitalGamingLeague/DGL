@@ -1,4 +1,14 @@
 .Login 
 {
     margin: 50px;
+    
+    form
+    {
+        font-family: $title-font;
+    }
+    
+    .forgot-password
+    {
+        margin-left: 20px !important;
+    }
 }

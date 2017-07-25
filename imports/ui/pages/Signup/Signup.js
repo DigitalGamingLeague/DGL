@@ -51,12 +51,11 @@ class Signup extends React.Component {
 
   handleSubmit() {
     const { history } = this.props;
-
     Accounts.createUser({
       email: this.emailAddress.value,
       password: this.password.value,
       profile: {
-        username: this.username.value
+          username: this.username.value
       },
     }, (error) => {
       if (error) {
@@ -131,15 +130,7 @@ class Signup extends React.Component {
             
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget dui porta, vehicula velit vel, dictum ipsum. Vivamus at ultrices neque, at venenatis mauris. Maecenas justo ex, euismod eu mi ut, fermentum lacinia metus. Suspendisse varius neque eu dui faucibus pellentesque. Mauris pellentesque lacus leo, id porta urna imperdiet quis. Nunc elementum elit luctus leo vestibulum pretium. Cras vestibulum pellentesque tristique.
-            </p>
-
-            <p>
-                Donec pharetra ultricies mauris, in auctor justo porttitor at. Nullam dictum posuere tellus, vitae sagittis risus facilisis quis. Vestibulum diam elit, iaculis vel metus vitae, bibendum volutpat eros. Vestibulum libero est, imperdiet id ex at, egestas sagittis erat. Aenean posuere hendrerit convallis. Nam vel velit lacus. Nunc ultrices efficitur tempus. Sed vulputate dui ac nunc tincidunt sollicitudin. Suspendisse elit dui, porttitor nec scelerisque non, condimentum ac tellus. Fusce justo sapien, congue eu venenatis nec, imperdiet efficitur odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam molestie tortor elit, sed imperdiet magna efficitur eu. Pellentesque eu justo vel est elementum finibus. Fusce a nulla in tellus condimentum efficitur. Nunc ligula ipsum, fermentum eget ipsum in, bibendum vestibulum nisl.
-            </p>
-              
-            <p>
-                Mauris rhoncus scelerisque scelerisque. Nullam justo tellus, sollicitudin eget aliquam at, gravida vitae nisi. Quisque iaculis ullamcorper turpis id dapibus. Nullam tincidunt augue at mi dignissim rhoncus quis sit amet purus. Donec ac justo quis mi dignissim condimentum. Donec imperdiet molestie lobortis. Donec odio leo, malesuada nec risus non, sodales interdum purus. Praesent gravida consequat enim et luctus. Nunc vitae vehicula augue, sit amet fermentum purus. Morbi semper quam nec turpis semper facilisis. Suspendisse ut rhoncus massa. In nunc eros, ultrices id vehicula a, pretium ac justo.
-            </p>      
+            </p>    
               
               
               

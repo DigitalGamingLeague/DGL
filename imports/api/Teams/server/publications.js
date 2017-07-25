@@ -14,19 +14,21 @@ Meteor.publish('teams.view', function teamsView(teamId) {
 });
 
 publishComposite('teamsthingy', {
-    find() {
+    find: function ()
+    {
         // Find top ten highest scoring posts
         return Teams.find();
     },
     children: [
         {
-            find(team) {
+            find: function (team) {
                 // Find post author. Even though we only want to return
                 // one record here, we use "find" instead of "findOne"
                 // since this function should return a cursor.
                 return Meteor.users.find(
                     { _id: team.owner },
-                    { fields: { profile: 1 } });
+                    { fields: { profile: 1 } 
+                });
             }
         }
     ]

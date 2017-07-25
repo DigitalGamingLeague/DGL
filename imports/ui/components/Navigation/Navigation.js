@@ -36,34 +36,32 @@ const GlobalNavigation = () => (
         </LinkContainer>
 
         <OverlayTrigger placement="bottom" overlay={constructionWarning}>
-            <LinkContainer to="events">
+            <LinkContainer to="/events">
                 <NavItem eventKey={3}>
                     Events
                 </NavItem>
             </LinkContainer>
         </OverlayTrigger>
 
-        <LinkContainer to="rules">
+        <LinkContainer to="/rules">
             <NavItem eventKey={4}>
                 Rules
             </NavItem>
         </LinkContainer>
 
         <OverlayTrigger placement="bottom" overlay={constructionWarning}>
-            <LinkContainer to="members">
+            <LinkContainer to="/members">
                 <NavItem eventKey={5}>
                     Members
                 </NavItem>
             </LinkContainer>
         </OverlayTrigger>
     
-        <OverlayTrigger placement="bottom" overlay={constructionWarning}>
-            <LinkContainer to="teams">
+            <LinkContainer to="/teams">
                 <NavItem eventKey={6}>
                     Teams
                 </NavItem>
             </LinkContainer> 
-        </OverlayTrigger>
     </Nav>                                    
 );
 

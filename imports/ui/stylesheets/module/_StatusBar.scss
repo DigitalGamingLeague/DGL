@@ -1,0 +1,16 @@
+.StatusBar 
+{
+    flex: none;
+    height: $header-height + 50px;
+    width: 100%;
+    color: white;
+    background-color: $bg-darker;
+    background-image: url('/images/brilliant.png');
+    text-align: center;
+    line-height: 50px; 
+    
+    .StatusBar-count
+    {
+        color: $brand-accent;
+    }
+}

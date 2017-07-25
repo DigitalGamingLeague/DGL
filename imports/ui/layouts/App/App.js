@@ -10,16 +10,13 @@ import Authenticated from '../../components/Authenticated/Authenticated';
 import Public from '../../components/Public/Public';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Index from '../../pages/Index/Index';
-import Documents from '../../pages/Documents/Documents';
-import NewDocument from '../../pages/NewDocument/NewDocument';
-import ViewDocument from '../../pages/ViewDocument/ViewDocument';
-import EditDocument from '../../pages/EditDocument/EditDocument';
 import Signup from '../../pages/Signup/Signup';
 import Login from '../../pages/Login/Login';
 import Logout from '../../pages/Logout/Logout';
 import RecoverPassword from '../../pages/RecoverPassword/RecoverPassword';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
+import ProfileEdit from '../../pages/Profile/ProfileEdit';
 import NotFound from '../../pages/NotFound/NotFound';
 import Denied from '../../pages/Denied/Denied';
 import Footer from '../../components/Footer/Footer';
@@ -27,8 +24,13 @@ import Terms from '../../pages/Terms/Terms';
 import Privacy from '../../pages/Privacy/Privacy';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
 import NewsList from '../../components/NewsList/NewsList';
+import Documents from '../../pages/Documents/Documents';
+import NewDocument from '../../pages/Documents/NewDocument';
+import ViewDocument from '../../pages/Documents/ViewDocument';
+import EditDocument from '../../pages/Documents/EditDocument';
 import Teams from '../../pages/Teams/Teams';
-import CreateTeam from '../../pages/CreateTeam/CreateTeam';
+import ViewTeam from '../../pages/Teams/ViewTeam';
+import CreateTeam from '../../pages/Teams/CreateTeam';
 
 const App = props => (
   <Router>
@@ -47,8 +49,10 @@ const App = props => (
                         <Any exact path="/documents/:_id" component={ViewDocument} {...props} />
                         <Admin exact path="/documents/:_id/edit" component={EditDocument} {...props} />
                         <Authenticated exact path="/profile" component={Profile} {...props} />
+                        <Authenticated exact path="/profile/edit" component={ProfileEdit} {...props} />
                         <Any exact path="/teams" component={Teams} {...props} />
                         <Authenticated exact path="/teams/new" component={CreateTeam} {...props} />
+                        <Any exact path="/teams/:_id" component={ViewTeam} {...props} />
                         <Public path="/signup" component={Signup} {...props} />
                         <Public path="/login" component={Login} {...props} />
                         <Public path="/logout" component={Logout} {...props} />
