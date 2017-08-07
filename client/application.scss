@@ -1,4 +1,4 @@
-/* BCL variables */
+/* DGL variables */
 @import "../imports/ui/stylesheets/base/variables";
 
 /* Bootstrap and Bootswatch (Cyborg) */
@@ -9,123 +9,24 @@
 /* Basic extensions */
 @import "../imports/ui/stylesheets/base/extends";
 @import "../imports/ui/stylesheets/base/animations";
-@import "../imports/ui/stylesheets/base/forms";
 
 /* Module styles */
-@import "../imports/ui/stylesheets/module/Loading";
 @import "../imports/ui/stylesheets/module/Login";
+@import "../imports/ui/stylesheets/module/Footer";
 @import "../imports/ui/stylesheets/module/PageHeader";
 @import "../imports/ui/stylesheets/module/Signup";
 @import "../imports/ui/stylesheets/module/Navigation";
 @import "../imports/ui/stylesheets/module/Sidebar";
-@import "../imports/ui/stylesheets/module/StatusBar";
+@import "../imports/ui/stylesheets/module/StatusBar"; 
 @import "../imports/ui/stylesheets/module/OAuthLoginButtons";
+@import "../imports/ui/stylesheets/module/Notices";
 
 /* Page styles */
 @import "../imports/ui/stylesheets/pages/Teams"; 
 @import "../imports/ui/stylesheets/pages/Index";
+@import "../imports/ui/stylesheets/pages/Members";
+@import "../imports/ui/stylesheets/pages/Games";
+@import "../imports/ui/stylesheets/pages/Dashboard";
 
-html 
-{
-    position: relative;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body
-{
-    height: 100%;
-    margin: 0;
-    padding-top: $header-height;
-    background-image: url('/images/black-orchid.png');
-    background-color: $bg-darker !important;
-}
-
-.content
-{
-    padding: 50px;
-    position: relative;
-}
-     
-h1,h2,h3,h4,h5,h6
-{
-    font-family: $title-font !important;
-}
-
-h4
-{
-    font-size: 2rem;
-    font-weight: 400;
-}
-
-// Creates a border effect on an image
-.imagebox
-{
-    position: relative;
-    padding: 0px;
-    overflow: hidden;
-    border: 1px solid $bg-dark;
-
-    .imagebox-shadow 
-    {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,.5);
-    }
-
-    img 
-    {
-        width: 100%;
-        height: auto;
-    }
-} 
-
-#NotFound
-{
-    
-    text-align: center;
-    color: $text-primary;
-    
-    h1
-    {
-        font-size: 10rem;
-        color: $brand-primary;
-    }
-    
-    strong
-    {
-        color: $brand-primary;
-    }
-}
-
-#Denied
-{
-    
-    text-align: center;
-    color: $text-primary;
-    
-    h1
-    {
-        font-size: 10rem;
-        color: $brand-primary;
-    }
-    
-    strong
-    {
-        color: $brand-primary;
-    }
-} 
-
-.construction-warning
-{
-    color: $brand-accent;
-}
-
-.back-button
-{
-    color: $text-inverse;
-}
+/* Site-wide styles */
+@import "../imports/ui/stylesheets/base/universal";

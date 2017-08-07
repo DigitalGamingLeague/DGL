@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
-import Icon from '../Icon/Icon';
+import FontAwesome from 'react-fontawesome';
 
 const handleLogin = (service, callback) => {
   const options = {
@@ -29,9 +29,9 @@ const handleLogin = (service, callback) => {
 };
 
 const serviceLabel = {
-  facebook: <span><Icon icon="facebook-official" /> Log In with Facebook</span>,
-  github: <span><Icon icon="github" /> Log In with GitHub</span>,
-  google: <span><Icon icon="google" /> Log In with Google</span>,
+  facebook: <span><FontAwesome name="facebook-official" /> Log In with Facebook</span>,
+  github: <span><FontAwesome name="github" /> Log In with GitHub</span>,
+  google: <span><FontAwesome name="google" /> Log In with Google</span>,
 };
 
 const OAuthLoginButton = ({ service, callback }) => (

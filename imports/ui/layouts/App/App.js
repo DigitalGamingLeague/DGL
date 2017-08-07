@@ -5,68 +5,82 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
+
 import Navigation from '../../components/Navigation/Navigation';
-import Authenticated from '../../components/Authenticated/Authenticated';
-import Public from '../../components/Public/Public';
-import Sidebar from '../../components/Sidebar/Sidebar';
-import Index from '../../pages/Index/Index';
-import Signup from '../../pages/Signup/Signup';
-import Login from '../../pages/Login/Login';
-import Logout from '../../pages/Logout/Logout';
-import RecoverPassword from '../../pages/RecoverPassword/RecoverPassword';
-import ResetPassword from '../../pages/ResetPassword/ResetPassword';
-import Profile from '../../pages/Profile/Profile';
-import ProfileEdit from '../../pages/Profile/ProfileEdit';
-import NotFound from '../../pages/NotFound/NotFound';
-import Denied from '../../pages/Denied/Denied';
 import Footer from '../../components/Footer/Footer';
-import Terms from '../../pages/Terms/Terms';
-import Privacy from '../../pages/Privacy/Privacy';
-import ExamplePage from '../../pages/ExamplePage/ExamplePage';
-import NewsList from '../../components/NewsList/NewsList';
-import Documents from '../../pages/Documents/Documents';
-import NewDocument from '../../pages/Documents/NewDocument';
-import ViewDocument from '../../pages/Documents/ViewDocument';
-import EditDocument from '../../pages/Documents/EditDocument';
-import Teams from '../../pages/Teams/Teams';
-import ViewTeam from '../../pages/Teams/ViewTeam';
-import CreateTeam from '../../pages/Teams/CreateTeam';
+import Index from '/imports/ui/pages/Index/Index';
+import Dashboard from '/imports/ui/pages/Admin/Dashboard';
+
+import Documents from '/imports/ui/pages/Documents/Documents';
+import NewDocument from '/imports/ui/pages/Documents/NewDocument';
+import ViewDocument from '/imports/ui/pages/Documents/ViewDocument';
+import EditDocument from '/imports/ui/pages/Documents/EditDocument';
+
+import Community from '/imports/ui/pages/Community/Community';
+import Profile from '/imports/ui/pages/Community/Members/Profile';
+import ProfileEdit from '/imports/ui/pages/Community/Members/ProfileEdit';
+import Members from '/imports/ui/pages/Community/Members/Members';
+import Teams from '/imports/ui/pages/Community/Teams/Teams';
+import ViewTeam from '/imports/ui/pages/Community/Teams/ViewTeam';
+import CreateTeam from '/imports/ui/pages/Community/Teams/CreateTeam';
+import Staff from '/imports/ui/pages/Community/Staff/Staff';
+
+import Signup from '/imports/ui/pages/Authentication/Signup';
+import Login from '/imports/ui/pages/Authentication/Login';
+import Logout from '/imports/ui/pages/Authentication/Logout';
+import RecoverPassword from '/imports/ui/pages/Authentication/RecoverPassword';
+import ResetPassword from '/imports/ui/pages/Authentication/ResetPassword';
+
+import Games from '/imports/ui/pages/Games/Games';
+
+import NotFound from '/imports/ui/pages/Misc/NotFound';
+import Denied from '/imports/ui/pages/Misc/Denied';
+import Terms from '/imports/ui/pages/Misc/Terms';
+import Privacy from '/imports/ui/pages/Misc/Privacy';
 
 const App = props => (
   <Router>
     {!props.loading ? <div className="App">
-        <Grid fluid>
+        <Grid>
             <Navigation {...props} />
             <Row>
-                <Col className="content" md={2} xsHidden smHidden>
-                    <Sidebar {...props} />
-                </Col>
-                <Col className="content" xs={12} md={10}>
+                <Col className="content" xs={12}>
                     <Switch>
-                        <Route exact name="index" path="/" component={Index} />
+                        <Any exact path="/" component={Index} />
+                        <Admin exact path="/admin" component={Dashboard} {...props} />
+    
                         <Admin exact path="/documents" component={Documents} {...props} />
                         <Admin exact path="/documents/new" component={NewDocument} {...props} />
                         <Any exact path="/documents/:_id" component={ViewDocument} {...props} />
                         <Admin exact path="/documents/:_id/edit" component={EditDocument} {...props} />
+    
+                        <Any exact path="/community" component={Community} {...props} />
+                        <Any exact path="/members" component={Members} {...props} />
                         <Authenticated exact path="/profile" component={Profile} {...props} />
                         <Authenticated exact path="/profile/edit" component={ProfileEdit} {...props} />
+                        <Any exact path="/profile/:_id" component={Profile} {...props} />
                         <Any exact path="/teams" component={Teams} {...props} />
                         <Authenticated exact path="/teams/new" component={CreateTeam} {...props} />
                         <Any exact path="/teams/:_id" component={ViewTeam} {...props} />
+                        <Any path="/staff" component={Staff} />
+    
                         <Public path="/signup" component={Signup} {...props} />
                         <Public path="/login" component={Login} {...props} />
                         <Public path="/logout" component={Logout} {...props} />
-                        <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
-                        <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
-                        <Route name="terms" path="/terms" component={Terms} />
-                        <Route name="privacy" path="/privacy" component={Privacy} />
-                        <Route name="examplePage" path="/example-page" component={ExamplePage} />
-                        <Route name="denied" path="/denied" component={Denied} />
-                        <Route component={NotFound} />
+                        <Any path="/recover-password" component={RecoverPassword} />
+                        <Any path="/reset-password/:token" component={ResetPassword} />
+    
+                        <Any exact path="/games" component={Games} {...props} />
+    
+                        <Any path="/terms" component={Terms} />
+                        <Any path="/privacy" component={Privacy} />
+                        <Any path="/denied" component={Denied} />
+                        <Any component={NotFound} />
                     </Switch>
                 </Col>
             </Row>
         </Grid>
+        <Footer />
     </div> : ''}
   </Router>
 );
@@ -88,6 +102,28 @@ const Admin = ({ loggingIn, authenticated, component, ...rest }) => (
       Roles.userIsInRole( Meteor.userId(), ['admin']) ?
       (React.createElement(component, { ...props, loggingIn, authenticated })) :
       (<Redirect to="/denied" />)
+    )}
+  />
+);
+
+const Authenticated = ({ loggingIn, authenticated, component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props => (
+      authenticated ?
+      (React.createElement(component, { ...props, loggingIn, authenticated })) :
+      (<Redirect to="/logout" />)
+    )}
+  />
+);
+
+const Public = ({ loggingIn, authenticated, component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props => (
+      !authenticated ?
+      (React.createElement(component, { ...props, loggingIn, authenticated })) :
+      (<Redirect to="/" />)
     )}
   />
 );

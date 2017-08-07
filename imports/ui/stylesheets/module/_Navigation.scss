@@ -1,21 +1,30 @@
 @import "../base/variables";
 @import "../base/mixins";
 
+    
 /* Navbar */
 #navigation
 {
-	height: $header-height;
+	min-height: $header-height;
 	border-bottom: 1px solid $brand-primary;
     box-shadow: 0px 1px 4px black;
     background-color: $bg-dark !important;
     padding: 0px;
     
-    /* BCL Logo */
     #logo
     {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        margin-left: -1 * $logo-width / 2;
         width: $logo-width;
         height: auto;
         cursor: pointer;
+    }
+    
+    #logo-small
+    {
+        height: $header-height;
     }
     
     #discord
@@ -32,8 +41,7 @@
 	.navbar-nav > li 
 	{
         @include transition;
-		text-transform: uppercase;
-		font-size: 1.5rem;
+		text-transform: uppercase; 
         
         &:hover
         {
@@ -55,13 +63,12 @@
 		}
 	}
         
-    #right-nav > li
+    #media-nav > li
     {
         >a span
         {
             vertical-align: middle;
             color: $brand-primary !important;
-            font-size: 2rem;
         }
         &:hover
         {

@@ -22,6 +22,7 @@ Teams.schema = new SimpleSchema({
     owner: {
         type: String,
         label: 'The ID of the user this team belongs to.',
+        unique: true,
     },
     
     createdAt: {
@@ -43,6 +44,7 @@ Teams.schema = new SimpleSchema({
     name: {
         type: String,
         label: 'The name of the team.',
+        unique: true,
     },
     
     abbreviation: {
@@ -50,9 +52,25 @@ Teams.schema = new SimpleSchema({
         label: 'The abbreviation of the team.',
     },
     
+    description: {
+        type: String,
+        label: 'The description of the team.',
+    },
+    
     website: {
         type: String,
+        regEx: SimpleSchema.RegEx.Url,
         label: 'The website for the team.',
+        optional: true,
+    },
+    
+    members: {
+        type: Array,
+        label: 'The members of the team.',
+        optional: true,
+    },
+    "members.$": {
+        type: String
     },
 });
 

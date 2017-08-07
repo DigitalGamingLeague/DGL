@@ -1,0 +1,32 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.Games
+{
+    .games-banner
+    {
+        height: 300px;
+        text-align: center;
+        
+        &.insurgency
+        {
+            background: #FF512F;
+            background: -webkit-linear-gradient(to right, #DD2476, #FF512F);
+            background: linear-gradient(to right, #DD2476, #FF512F); 
+        }
+        
+        &.hockey
+        {
+            background: #348F50; 
+            background: -webkit-linear-gradient(to right, #56B4D3, #348F50); 
+            background: linear-gradient(to right, #56B4D3, #348F50); 
+        }
+        
+        
+        h1
+        {
+            
+        line-height: 300px;
+        }
+    }
+}

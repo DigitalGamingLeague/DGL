@@ -1,69 +1,58 @@
 import seeder from '@cleverbeagle/seeder';
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 import Documents from '../../api/Documents/Documents';
 
-const documentsSeed = userId => ({
-  collection: Documents,
-  environments: ['development', 'staging'],
-  noLimit: true,
-  modelCount: 5,
-  model(dataIndex) {
-    return {
-      owner: userId,
-      title: `Document #${dataIndex + 1}`,
-      body: `This is the body of document #${dataIndex + 1}`,
-    };
-  },
-});
+var roles = [
+    'super', 
+    'admin', 
+    'staff', 
+    'moderator',
+    'captain', 
+    'player',
+    'member',
+];
 
-seeder(Meteor.users, {
-  environments: ['development', 'staging'],
-  noLimit: true,
-  data: [{
-    email: 'admin@admin.com',
-    password: 'password',
-    profile: {
-      username: 'Aita'
+var users = [
+    { 
+        username: "admin", 
+        email: "admin@admin.com", 
+        roles: ['super', 'admin', 'staff', 'member'] 
     },
-    roles: ['admin'],
-    data(userId) {
-      return documentsSeed(userId);
+    { 
+        username: "dummy", 
+        email: "dummy@dummy.com", 
+        roles: ['member'] 
     },
-  }],
-  modelCount: 5,
-  model(index, faker) {
-    const userCount = index + 1;
-    return {
-      email: `user+${userCount}@test.com`,
-      password: 'password',
-      profile: {
-        name: {
-          first: faker.name.firstName(),
-          last: faker.name.lastName(),
-        },
-      },
-      roles: ['user'],
-      data(userId) {
-        return documentsSeed(userId);
-      },
-    };
-  },
-});
+];
 
-/* Production fixtures */
-seeder(Meteor.users, {
-  environments: ['production'],
-  noLimit: true,
-  data: [{
-    email: 'rdanielcurry@gmail.com',
-    password: 'password',
-    profile: {
-      username: 'Aita'
-    },
-    roles: ['admin'],
-    data(userId) {
-      return documentsSeed(userId);
-    },
-  }],
-});
+/* Populate the user list */
+function populateUsers()
+{
+    if (Meteor.users.find().count() === 0)
+    {
+        /* Create roles from array */   
+        _.each(roles, function (role) {
+            Roles.createRole(role, {unlessExists: true});
+        });
 
+        /* Create user accounts from array */
+        _.each(users, function (user) {
+            var id;
+
+            id = Accounts.createUser({
+                email: user.email,
+                password: user.username,
+                profile: { username: user.username }
+            });
+
+            if (user.roles.length > 0) {
+                Roles.addUsersToRoles(id, user.roles);
+            }
+
+        });
+        
+    }
+}
+
+populateUsers();

@@ -1,0 +1,39 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+
+#NotFound
+{
+    
+    text-align: center;
+    color: $text-primary;
+    
+    h1
+    {
+        font-size: 10rem;
+        color: $brand-primary;
+    }
+    
+    strong
+    {
+        color: $brand-primary;
+    }
+}
+
+#Denied
+{
+    
+    text-align: center;
+    color: $text-primary;
+    
+    h1
+    {
+        font-size: 10rem;
+        color: $brand-primary;
+    }
+    
+    strong
+    {
+        color: $brand-primary;
+    }
+} 

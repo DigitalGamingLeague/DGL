@@ -1,0 +1,70 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+footer
+{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-top: 20px;
+	box-shadow: 0px 0px 4px black;
+	height: $footer-height !important;
+	background-color: $bg-dark;
+	border-top: 1px solid rgba(255,255,255,.2);
+	color: $text-primary;
+    font-family: $title-font !important;
+
+        
+    .divide // Divider gradient
+    {
+        border-width: 0px;
+        border-left-width: 1px;
+        border-style: solid;
+        -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0), rgba(255, 255, 255, .2)), to(rgba(255, 255, 255, 0))) 1 100%;
+        -webkit-border-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .2), rgba(255, 255, 255, 0)) 1 100%;
+        -moz-border-image: -moz-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .2), rgba(255, 255, 255, 0)) 1 100%;    
+        -o-border-image: -o-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .2), rgba(255, 255, 255, 0)) 1 100%;
+        border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2), rgba(255, 255, 255, 0)) 1 100%;
+    }
+    
+	#footer-branding
+	{
+		text-align: center;
+        
+		img 
+		{
+			width: 60px;
+			height: 60px;
+			-webkit-filter: grayscale(100%); 
+			filter: grayscale(100%);
+		}	
+        
+		p
+		{
+			margin: 5px;
+			font-size: .6em;
+            font-weight: 700;
+		}
+	}
+	
+	header
+	{
+		color: $text-primary;
+		text-transform: uppercase;
+		font-size: 1em;
+	}
+    
+	ul
+	{
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		
+		li
+		{
+			font-size: .75em;
+            font-weight: 700;
+			color: $brand-primary;
+		}
+	}
+}

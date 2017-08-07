@@ -4,8 +4,6 @@
     
 .teams-info
 {
-    text-align: right;
-
     p
     {
         color: $text-primary;
@@ -73,11 +71,20 @@
     }
 }
 
+.breadcrumb
+{
+    text-transform:capitalize;
+    background: transparent;
+}
+
 .teams-view
 {
+    
     #teams-view-emblem
     {
         text-align: center;
+        margin-bottom: 50px;
+        margin-top: 30px;
         
         .fa
         {
@@ -86,15 +93,4 @@
         }
     }
     
-    h2
-    {
-        color: $brand-primary;
-        font-family: $title-font;
-        margin-bottom: 50px;
-        
-        small
-        {
-            color: $text-primary;
-        }
-    }
 }

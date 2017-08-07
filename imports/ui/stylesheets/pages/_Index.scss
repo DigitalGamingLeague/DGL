@@ -3,87 +3,48 @@
 
 .Index
 {
-    #home-updates
+    #banner
     {
-        padding: 20px;
-        
-        #news-list
-        {
-            li
-            {
-                background-color: transparent;   
-                color: $text-primary; 
-                border: none;
-                margin-top: 30px;
-
-                h4
-                {
-                    color: $brand-primary;
-                    cursor: pointer;
-                    
-                    &:hover
-                    {
-                        color: $brand-accent;
-                    }
-                }
-            }
-        }
+        max-height: 400px;
+        overflow: hidden;
     }
     
-    #grid-right
+    .match-result
     {
+        margin-top: 25px;
+        font-family: $title-font;
         
-        .gridbox
+        .match-result-team
         {
-            margin-top: 20px;
-            color: $text-primary;
-            padding: 20px;
+            padding: 0px;
+        }
+        
+        .match-result-team-name
+        {
+            background-color: $text-inverse;
+            padding: 15px;
             text-align: center;
-            font-family: $title-font;
-            border-bottom: 1px solid $bg-dark;
-            border-left: 0px;
-            border-top: 0px;
+            color: $brand-primary;
             
-            h4
+            &:hover
             {
-                margin-bottom: 20px;
-            }
-            
-            .btn
-            {
+                background-color: $brand-primary;
                 color: $text-inverse;
-                font-weight: 700;
             }
         }
         
-        #gridbox-contact
+        .match-result-vs
         {
-            
-            text-align: right;
-    
-            .discord-icon
-            {
-                width: 18px;
-            }
-            
-            li
-            {
-                background: transparent;
-                border: 0px;
-                color: $brand-accent;
-                
-                span
-                {
-                    color: $text-primary;
-                    margin-left: 30px;
-                }
-            }
+            padding: 15px;
+            text-align: center;
         }
+    }
         
-        #gridbox-about
-        {
-            text-align: right;
-        }
-        
+    .match-result-date
+    {
+        padding-right: 10px;
+        border-top: 1px solid rgba(100,100,100,.1);
+        font-family: $title-font;
+        text-align: right;
     }
 }

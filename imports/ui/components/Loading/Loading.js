@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Loading = () => (
-  <div className="Loading">
-    <img src="/rolling.gif" />
-  </div>
+    <div className="loading">
+        <img src="/images/loading.svg" />
+    </div>
 );
 
 export default Loading;

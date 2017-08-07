@@ -1,0 +1,14 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.Dashboard
+{    
+    .panel-body 
+    {
+        >p
+        {
+            max-height: 100px;
+            overflow: hidden;
+        }
+    }
+}

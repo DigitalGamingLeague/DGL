@@ -6,7 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Roles } from 'meteor/alanning:roles';
 import Documents from '../../../api/Documents/Documents';
-import NotFound from '../NotFound/NotFound';
+import NotFound from '/imports/ui/pages/Misc/NotFound';
 import Loading from '../../components/Loading/Loading';
 
 const handleRemove = (documentId, history) => {

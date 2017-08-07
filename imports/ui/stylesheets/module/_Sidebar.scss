@@ -22,7 +22,7 @@
         
         h4 
         {
-            color: $text-primary !important;
+            color: $text-primary;
         }
     }
     
@@ -40,16 +40,37 @@
             flex: 1;
         }
                 
-        #sidebar-user-avatar 
+        #sidebar-public-avatar 
         {
             flex: none;
             padding: 20px;
             overflow: hidden;
+            text-decoration: none;
             
             .fa
             {
                 color: $bg-dark;
                 font-size: 10rem; 
+            }
+            
+            h4
+            {
+                color: $brand-primary;   
+            }
+                
+            &:hover
+            {
+                background-color: $brand-primary;
+                
+                h4
+                {
+                    color: $text-inverse;   
+                }
+                
+                .fa
+                {
+                    color: $text-inverse;
+                }
             }
         }
     }
@@ -82,7 +103,7 @@
             }
         }
         
-        #sidebar-user-avatar 
+        #sidebar-private-avatar 
         {
             flex: none;
             padding: 20px;

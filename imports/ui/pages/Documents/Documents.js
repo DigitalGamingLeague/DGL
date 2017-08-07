@@ -9,8 +9,6 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import DocumentsCollection from '../../../api/Documents/Documents';
 import Loading from '../../components/Loading/Loading';
 
-import './Documents.scss';
-
 const handleRemove = (documentId) => {
   if (confirm('Are you sure? This is permanent!')) {
     Meteor.call('documents.remove', documentId, (error) => {
