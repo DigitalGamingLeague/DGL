@@ -55,14 +55,14 @@ const App = props => (
                         <Admin exact path="/documents/:_id/edit" component={EditDocument} {...props} />
     
                         <Any exact path="/community" component={Community} {...props} />
-                        <Any exact path="/members" component={Members} {...props} />
+                        <Any exact path="/community/members" component={Members} {...props} />
                         <Authenticated exact path="/profile" component={Profile} {...props} />
                         <Authenticated exact path="/profile/edit" component={ProfileEdit} {...props} />
                         <Any exact path="/profile/:_id" component={Profile} {...props} />
-                        <Any exact path="/teams" component={Teams} {...props} />
-                        <Authenticated exact path="/teams/new" component={CreateTeam} {...props} />
-                        <Any exact path="/teams/:_id" component={ViewTeam} {...props} />
-                        <Any path="/staff" component={Staff} />
+                        <Any exact path="/community/teams" component={Teams} {...props} />
+                        <Authenticated exact path="/community/teams/new" component={CreateTeam} {...props} />
+                        <Any exact path="/community/teams/:_id" component={ViewTeam} {...props} />
+                        <Any path="/community/staff" component={Staff} />
     
                         <Public path="/signup" component={Signup} {...props} />
                         <Public path="/login" component={Login} {...props} />

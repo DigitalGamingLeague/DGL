@@ -31,13 +31,11 @@ const Navigation = props => (
 const GlobalNavigation = props => (
     <Nav>
 
-        <OverlayTrigger placement="bottom" overlay={constructionWarning}>
-            <LinkContainer to="/games">
-                <NavItem eventKey={2}>
-                    Games
-                </NavItem>
-            </LinkContainer>
-        </OverlayTrigger>
+        <LinkContainer to="/games">
+            <NavItem eventKey={2}>
+                Games
+            </NavItem>
+        </LinkContainer>
     
         <OverlayTrigger placement="bottom" overlay={constructionWarning}>
             <LinkContainer to="/watch">
@@ -55,13 +53,11 @@ const GlobalNavigation = props => (
             </LinkContainer>
         </OverlayTrigger>
     
-        <OverlayTrigger placement="bottom" overlay={constructionWarning}>
-            <LinkContainer to="/community">
-                <NavItem eventKey={4}>
-                    Community
-                </NavItem>
-            </LinkContainer>
-        </OverlayTrigger>
+        <LinkContainer to="/community">
+            <NavItem eventKey={4}>
+                Community
+            </NavItem>
+        </LinkContainer>
     
         {
             !props.authenticated ? (
