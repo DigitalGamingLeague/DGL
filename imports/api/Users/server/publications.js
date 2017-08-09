@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { publishComposite } from 'meteor/reywood:publish-composite';
+import Teams from '../../Teams/Teams';
 
 Meteor.publish('users.editProfile', function usersProfile() {
   return Meteor.users.find(this.userId, {
@@ -29,19 +31,41 @@ Meteor.publish("users.status", function () {
     );
 });
 
-Meteor.publish("users.list", function () {
+publishComposite('users.list', function usersList() {
     
-    return Meteor.users.find({ }, 
-        { 
-            fields: 
+    return {
+        find: function()
+        {
+            return Meteor.users.find({},                    
+            { 
+                fields: 
+                {
+                    'status': 1,
+                    'createdAt': 1,
+                    'profile': 1,
+                } 
+            });
+        },
+        children: [
             {
-                'status': 1,
-                'createdAt': 1,
-                'profile': 1,
-                'team': 1,
-            } 
-        }
-    );
+                find: function (u) {
+                    
+                    return Teams.find(
+                        {
+                            members: u._id 
+                        },
+                        { 
+                            fields: 
+                            { 
+                                abbreviation: 1,
+                                members: 1,
+                            } 
+                        }
+                    );
+                }
+            }
+        ]
+    };
 });
 
 Meteor.publish("users.staff", function () {

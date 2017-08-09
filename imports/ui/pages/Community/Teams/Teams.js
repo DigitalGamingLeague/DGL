@@ -41,19 +41,10 @@ function printTeamsData(teams) {
 };
 
 const linkFormatter = (cell, row) => {
-    const link = '/teams/' + row.id;
+    const link = '/community/teams/' + row.id;
     return (
             <Link to={link}>
                 {cell}
-            </Link>
-    )
-}
-
-const buttonFormatter = (cell) => {
-    const link = '/teams/' + cell;
-    return (
-            <Link to={link}>
-                Join Team
             </Link>
     )
 }
@@ -77,7 +68,7 @@ const Teams = props => (!props.loading ? (
 ) : <Loading />);
 
 const TeamsListTable = ({ teams, match, history }) => (
-    <Col xs={12} md={7}>
+    <Col xs={12} md={8}>
 
         <BootstrapTable data={ printTeamsData(teams) } bordered={ false } tableContainerClass='datatable-custom' search pagination>
             <TableHeaderColumn dataField="id" isKey={ true } hidden>ID</TableHeaderColumn>
@@ -85,7 +76,6 @@ const TeamsListTable = ({ teams, match, history }) => (
             <TableHeaderColumn dataField="abbreviation" dataSort>Abbreviation</TableHeaderColumn>
             <TableHeaderColumn dataField="owner" dataSort>Owner</TableHeaderColumn>
             <TableHeaderColumn dataField="created" dataSort>Created</TableHeaderColumn>
-            <TableHeaderColumn dataField="id" dataFormat={buttonFormatter} dataAlign="right"></TableHeaderColumn>
         </BootstrapTable>
 
     </Col>
@@ -93,7 +83,7 @@ const TeamsListTable = ({ teams, match, history }) => (
 
 const TeamsListPrivate = () => (
 
-    <Col className="teams-info" xsHidden smHidden mdOffset={1} md={4}>
+    <Col className="teams-info" xsHidden smHidden mdOffset={1} md={3}>
 
         <h2>Joining a Team</h2>
 
@@ -110,7 +100,7 @@ const TeamsListPrivate = () => (
         <h2>Creating a Team</h2>
 
         <p>
-            You can also <Link to={'/teams/new'}>create your own team</Link> -- anyone can do it! 
+            You can also <Link to='/community/teams/new'>create your own team</Link> -- anyone can do it! 
         </p>
         <p>
             To participate in a tournament, your team must have at least 5 members enrolled.
@@ -120,7 +110,7 @@ const TeamsListPrivate = () => (
 
 const TeamsListPublic = () => (
 
-    <Col className="teams-info" xsHidden smHidden mdOffset={1} md={4}>
+    <Col className="teams-info" xsHidden smHidden mdOffset={1} md={3}>
 
         <h2>Joining a Team</h2>
 

@@ -10,6 +10,7 @@
     box-shadow: 0px 1px 4px black;
     background-color: $bg-dark !important;
     padding: 0px;
+    font-family: $title-font;
     
     #logo
     {
@@ -31,7 +32,7 @@
     {
         width: 18px;
     }
-	
+    
 	>.container
 	{
 		padding: 0px;
@@ -57,11 +58,19 @@
 			padding-top: 0;
             border: none !important;
             color: white !important;
-            font-family: $title-font;
             font-weight: 300;
             font-size: 2rem;
 		}
 	}
+    
+	
+    /* Dropdown */
+    .dropdown-menu
+    {
+        font-size: 1.5rem;
+        border: 1px solid $text-inverse;
+        margin-top: 1px;
+    }
         
     #media-nav > li
     {

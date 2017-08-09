@@ -10,6 +10,7 @@ import Loading from '/imports/ui/components/Loading/Loading';
 import FontAwesome from 'react-fontawesome';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import PageHeader from '/imports/ui/components/PageHeader/PageHeader';
+import Teams from '/imports/api/Teams/Teams';
 
 const Members = props => (!props.loading ? ( 
     <div className="members">
@@ -25,7 +26,8 @@ const Members = props => (!props.loading ? (
 
 function getTeam(id)
 {
-    return id;
+    var team = Teams.findOne({members: id});
+    return team && team.abbreviation;
 }
                           
 function printUsersData(members) {
@@ -36,7 +38,7 @@ function printUsersData(members) {
         users.push({
             id: members[i]._id,
             name: members[i].profile.username,
-            team: getTeam(members[i]),
+            team: getTeam(members[i]._id),
             clan: members[i].profile.clan,
             createdAt: monthDayYear(members[i].createdAt),
         });
@@ -66,7 +68,7 @@ const MembersListAdmin = ({ members, match, history }) => (
   
     <Row>
 
-        <Col xs={12} md={7}>
+        <Col xs={12} md={12}>
 
             <BootstrapTable data={ printUsersData(members) } bordered={ false } tableContainerClass='datatable-custom' search pagination>
                 <TableHeaderColumn dataField="id" isKey={ true } hidden>ID</TableHeaderColumn>
@@ -85,7 +87,7 @@ const MembersListPublic = ({ members, match, history }) => (
     
     <Row>
     
-        <Col xs={12} md={7}>
+        <Col xs={12} md={8}>
 
             <BootstrapTable data={ printUsersData(members) } bordered={ false } tableContainerClass='datatable-custom' search pagination>
                 <TableHeaderColumn dataField="id" isKey={ true } hidden>ID</TableHeaderColumn>
@@ -98,9 +100,9 @@ const MembersListPublic = ({ members, match, history }) => (
 
         </Col>
     
-        <Col xsHidden smHidden mdOffset={1} md={4}>
+        <Col xsHidden smHidden mdOffset={1} md={3}>
             
-            <h2>Joining the League</h2>
+            <h2>Join the League</h2>
 
             <p>
                 If you would like to join the league, you just need to <Link to="/signup">sign-up here</Link>. Then, you can join a team and participate in league events.

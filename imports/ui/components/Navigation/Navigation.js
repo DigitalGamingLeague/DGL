@@ -75,7 +75,7 @@ const GlobalNavigation = props => (
                         Roles.userIsInRole( Meteor.userId(), ['admin']) ? (
                             <LinkContainer to="/admin">
                                 <MenuItem eventKey="5.1">
-                                    Admin
+                                    Dashboard
                                 </MenuItem>
                             </LinkContainer> 
                         ) : ''

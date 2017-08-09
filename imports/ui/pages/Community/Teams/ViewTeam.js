@@ -11,168 +11,358 @@ import PageHeader from '/imports/ui/components/PageHeader/PageHeader';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
 import NotFound from '/imports/ui/pages/Misc/NotFound';
-
-const handleDelete = (teamId, history) => {
-  if (confirm('Are you sure you want to delete the team? This is permanent!')) {
-    Meteor.call('teams.remove', teamId, (error) => {
-      if (error) {
-        Bert.alert(error.reason, 'danger');
-      } else {
-        Bert.alert('Team deleted!', 'success');
-        history.push('/teams');
-      }
-    });
-  }
-}; 
-
-const handleJoin = (teamId, history) => {
-    if (confirm('Are you sure you wish to join this team?')) {
-        Meteor.call('teams.join', teamId, (error) => {
-            if (error) {
-                Bert.alert(error.reason, 'danger');
-            } else {
-                Bert.alert('Joined team!', 'success');
-            }
-        });
+                      
+class ViewTeam extends React.Component 
+{
+    
+    constructor(props) 
+    {
+        super(props);
     }
-}; 
+    
+    
+    handleDelete(teamId, history) 
+    {
+    
+        if (confirm('Are you sure you want to delete the team? This is permanent!'))
+        {
 
-const handleLeave = (teamId, history) => {
-    if (confirm('Are you sure you wish to leave this team?')) {
-        Meteor.call('teams.leave', teamId, (error) => {
-            if (error) {
-                Bert.alert(error.reason, 'danger');
-            } else {
-                Bert.alert('Successfully left team.', 'success');
-            }
-        });
-    }
-}; 
+            Meteor.call('teams.remove', teamId, (error) => {
 
-/* Find the current team for the user */
-const currentTeam = () => {
-    return TeamsCollection.findOne({
-        members: { 
-            $in: [Meteor.userId()] 
-        } 
-    })
-}
+                if (error) 
+                {
+                    Bert.alert(error.reason, 'danger');
+                } 
+                else 
+                {
+                    Bert.alert('Team deleted!', 'success');
+                    history.push('/teams');
+                }
 
-const ViewTeam = ({ loading, team, match, history, currentTeam }) => (!loading ?  (
-    team && team.length ? (
-        
-        <div className="teams-view">
+            });
+        }
+    }; 
 
-            <PageHeader history={history} title={ team && team.name } />
+    handleApply(teamId, history)
+    {
 
-            <Row>
-                <Col xs={12}>
+        if (confirm('Are you sure you wish to apply to this team?'))
+        {
 
-                    { Roles.userIsInRole( Meteor.userId(), ['admin']) ? <ViewTeamTools history={history} match={match} /> : '' }
+            Meteor.call('teams.apply', teamId, (error) => {
 
-                </Col>
-            </Row>        
+                if (error) 
+                {
+                    Bert.alert(error.reason, 'danger');
+                } 
+                else 
+                {
+                    Bert.alert('Application sent!', 'success');
+                }
 
-            <Row>
+            });
+        }
+    }; 
+    
+    handleApplyCancel(teamId, history)
+    {
 
-                <Col xs={12} sm={6} md={4}>            
+        if (confirm('Are you sure you wish to cancel your application?'))
+        {
 
-                        {/* Roster */}             
-                        <h4 className="text-muted">Roster</h4>                       
-                        <ListGroup fill>
-                                { 
-                                    team && team.members && team.members.length ? team.members.map((id) => (
-                                        <Link key={`roster${id}`} to={`/profile/${id}`}>
-                                            <ListGroupItem key={id} className="text-info">
-                                                { 
-                                                    Meteor.users.findOne(id).profile.username 
-                                                }
-                                            </ListGroupItem>
-                                        </Link>
-                                    )) : 'No team members yet'    
-                                }
-                        </ListGroup>
+            Meteor.call('teams.cancelApplication', teamId, (error) => {
 
-                        <ListGroup fill>                       
-                        {/* Join team */}
-                        { 
-                            !currentTeam ?   
-                                <ListGroupItem className="text-center">
-                                    <h4>You haven't yet joined a team, would you like to join this one?</h4>
-                                    <Button bsStyle="info" bsSize="lg" className="button-section" onClick={() => handleJoin(team._id, history)}>Join {team.name}</Button>
-                                </ListGroupItem>
-                                : ''                   
-                        }
+                if (error) 
+                {
+                    Bert.alert(error.reason, 'danger');
+                } 
+                else 
+                {
+                    Bert.alert('Application cancelled!', 'success');
+                }
 
-                        {/* Leave team */} 
-                        {  
-                            (currentTeam && currentTeam._id === team._id) ?                    
-                                <ListGroupItem className="text-center">
-                                    <h4>You are currently a member of this team.</h4>
-                                    <Button bsStyle="info" bsSize="lg" className="button-section" onClick={() => handleLeave(team._id, history)}>Leave {team.name}</Button>
-                                </ListGroupItem>
-                                : ''                 
-                        }
-                        </ListGroup>
+            });
+        }
+    }; 
 
-                </Col>
+    handleAcceptApplication(teamId, applicantId, history)
+    {
 
-                <Col xs={12} sm={6} md={4}>
+        if (confirm('Allow user to join this team?'))
+        {
 
-                    {/* Team info */}
-                    <h4 className="text-muted">Team Information</h4>
-                    <ListGroup fill>
-                        <ListGroupItem key={1} header="Abbreviation" className="text-primary" >{team && team.abbreviation}</ListGroupItem>
-                        <ListGroupItem key={2} header="Wins" className="text-primary" >No data available</ListGroupItem>
-                        <ListGroupItem key={3} header="Losses" className="text-primary" >No data available</ListGroupItem>
-                        <ListGroupItem key={4} header="Games Played" className="text-primary" >No data available</ListGroupItem>
-                        <ListGroupItem key={5} header="Last Tournament" className="text-primary" >No data available</ListGroupItem>
-                        <ListGroupItem key={6} header="Website" className="text-primary" >{team && team.website}</ListGroupItem>
-                        <ListGroupItem key={7} header="Created" className="text-primary" >{team && moment(team.createdAt).calendar()}</ListGroupItem>
-                    </ListGroup>
+            Meteor.call('teams.acceptApplication', teamId, applicantId, (error) => {
 
-                </Col>
+                if (error) 
+                {
+                    Bert.alert(error.reason, 'danger');
+                } 
+                else 
+                {
+                    Bert.alert('User has joined the team!', 'success');
+                }
 
-                <Col xsHidden smHidden md={4}>
+            });
+        }
+    }; 
 
-                    {/* Emblem */} 
-                    <div id="teams-view-emblem">
-                        <FontAwesome name="users" />                                  
-                    </div>
+    handleDenyApplication(teamId, applicantId, history) 
+    {
 
-                    {/* Team description */}       
-                    { 
-                        team && team.description ?  
-                            <blockquote className="blockquote">
-                                { team.description }
-                            </blockquote>
-                        : ''
-                    }
-                </Col>
-            </Row>
+        if (confirm('Deny the application?'))
+        {
 
-        </div>
+            Meteor.call('teams.rejectApplication', teamId, applicantId, (error) => {
 
-    ) : (<NotFound />)
-) : <Loading />);
+                if (error) 
+                {
+                    Bert.alert(error.reason, 'danger');
+                } 
+                else 
+                {
+                    Bert.alert('User has been denied.', 'success');
+                }
+
+            });
+        }
+    }; 
+
+    handleRemoveUserFromTeam(teamId, applicantId, history) 
+    {
+
+        if (confirm('Remove user from team?'))
+        {
+
+            Meteor.call('teams.removeUser', teamId, applicantId, (error) => {
+
+                if (error) 
+                {
+                    Bert.alert(error.reason, 'danger');
+                } 
+                else 
+                {
+                    Bert.alert('User has been removed from team.', 'success');
+                }
+
+            });
+        }
+    };     
+
+    handleLeave(teamId, history) 
+    {
+
+        if (confirm('Are you sure you wish to leave this team?')) 
+        {
+            Meteor.call('teams.leave', teamId, (error) => {
+
+                if (error) 
+                {
+                    Bert.alert(error.reason, 'danger');
+                } 
+                else 
+                {
+                    Bert.alert('Successfully left team.', 'success');
+                }
+
+            });
+        }
+    }; 
                                                                                   
-const ViewTeamTools = ({ match, history}) => (
-    <ButtonToolbar className="pull-right">
-        <ButtonGroup bsSize="small" className="button-section">
-            <Button onClick={() => history.push(`${match.url}/edit`)}>Edit team</Button>
-            <Button onClick={() => handleDelete(team._id, history)} bsStyle="danger">
-                Delete team
-            </Button>
-        </ButtonGroup>
-    </ButtonToolbar>
-);
+    ViewTeamTools( match, history)
+    {
+        return (
+            <ButtonToolbar className="pull-right">
+                <ButtonGroup bsSize="small" className="button-section">
+                    <Button onClick={() => history.push(`${match.url}/edit`)}>Edit team</Button>
+                    <Button onClick={() => this.handleDelete(team._id, history)} bsStyle="danger">
+                        Delete team
+                    </Button>
+                </ButtonGroup>
+            </ButtonToolbar>
+        );
+    }
+    
+    getUserTeamStatus(authenticated, currentTeam, team, history)
+    {
+        if (this.props.authenticated)
+        {
+            if (!this.props.currentTeam) 
+            {
+                if (this.props.applicant)
+                {
+                    return (
+                        <ListGroupItem className="text-center">
+                            <h4>You've applied to this team, but it must be accepted by the team owner</h4>
+                            <Button bsStyle="info" bsSize="lg" className="button-section" onClick={() =>    this.handleApplyCancel(this.props.team._id, this.props.history)}>
+                                Cancel application for {this.props.team.name}
+                            </Button>
+                        </ListGroupItem>
+                    );
+                }
+                
+                else
+                {
+                    return (
+                        <ListGroupItem className="text-center"> 
+                            <h4>You haven't yet joined a team, would you like to join this one?</h4>
+                            <Button bsStyle="info" bsSize="lg" className="button-section" onClick={() =>    this.handleApply(this.props.team._id, this.props.history)}>
+                                Join {this.props.team.name}
+                            </Button>
+                        </ListGroupItem>
+                    );
+                }  
+            }
+        
+            else if (this.props.currentTeam._id && this.props.currentTeam._id === this.props.team._id)
+            {
+                return (
+                    <ListGroupItem className="text-center">
+                        <h4>You are currently a member of this team.</h4>
+                        <Button bsStyle="info" bsSize="lg" className="button-section" onClick={() => this.handleLeave(this.props.team._id, this.props.history)}>
+                            Leave {this.props.team.name}
+                        </Button>
+                    </ListGroupItem>
+                );
+            }
+        }
+
+        return '';
+    }
+
+    render() 
+    {
+        if (this.props.loading) return (<Loading />);
+                                        
+        else if (!this.props.team || !this.props.team.name) return (<NotFound />); 
+                                                                    
+        else return (
+            <div className="teams-view">
+
+                <PageHeader history={this.props.history} title={ this.props.team && this.props.team.name } />
+
+                <Row>
+                    <Col xs={12}>
+
+                        { Roles.userIsInRole( Meteor.userId(), ['admin']) ? <ViewTeamTools history={this.props.history} match={this.props.match} /> : '' }
+
+                    </Col>
+                </Row>        
+
+                <Row>
+
+                    <Col xs={12} sm={6} md={4}>            
+
+                            <h4 className="text-muted">Roster</h4>                       
+                            <ListGroup fill>
+                                    { 
+                                        this.props.team && this.props.team.members && this.props.team.members.length ? this.props.team.members.map((id) => (
+
+                                            <ListGroupItem key={id} className="text-info">
+
+                                                <Link key={`roster${id}`} to={`/profile/${id}`}>
+                                                    { 
+                                                        Meteor.users.findOne(id).profile.username 
+                                                    }
+                                                </Link>
+
+                                                <ButtonGroup className="pull-right" bsSize="xsmall">
+
+                                                    <Button bsStyle="success" onClick={() => this.handleAcceptApplication(this.props.team._id, id, this.props.history)}>
+                                                        Promote
+                                                    </Button>
+
+                                                    <Button bsStyle="danger" onClick={() => this.handleRemoveUserFromTeam(this.props.team._id, id, this.props.history)}>
+                                                        Remove
+                                                    </Button>
+
+                                                </ButtonGroup>
+
+                                            </ListGroupItem>
+                                        )) : 'No team members yet'    
+                                    }
+                            </ListGroup> 
+
+                            <h4 className="text-muted">Applications</h4>                    
+                            <ListGroup fill>
+                                    { 
+                                        this.props.team && this.props.team.applications && this.props.team.applications.length ? this.props.team.applications.map((id) => (
+
+                                            <ListGroupItem key={`applications{id}`} className="text-info">
+
+                                                <Link to={`/profile/${id}`}>
+                                                    { 
+                                                        Meteor.users.findOne(id).profile.username 
+                                                    }
+                                                </Link>
+
+                                                <ButtonGroup className="pull-right" bsSize="xsmall">
+
+                                                    <Button bsStyle="success" onClick={() => this.handleAcceptApplication(this.props.team._id, id, this.props.history)}>
+                                                        Accept
+                                                    </Button>
+
+                                                    <Button bsStyle="danger" onClick={() => this.handleDenyApplication(this.props.team._id, id, this.props.history)}>
+                                                        Deny
+                                                    </Button>
+
+                                                </ButtonGroup>
+
+                                            </ListGroupItem>
+                                        )) : 'No applications'    
+                                    }
+                            </ListGroup>
+
+                            <ListGroup fill> 
+                                { this.getUserTeamStatus() }
+                            </ListGroup>
+
+                    </Col>
+
+                    <Col xs={12} sm={6} md={4}>
+
+                        {/* Team info */}
+                        <h4 className="text-muted">Team Information</h4>
+                        <ListGroup fill>
+                            <ListGroupItem key={1} header="Abbreviation" className="text-primary" >{this.props.team && this.props.team.abbreviation}</ListGroupItem>
+                            <ListGroupItem key={2} header="Wins" className="text-primary" >No data available</ListGroupItem>
+                            <ListGroupItem key={3} header="Losses" className="text-primary" >No data available</ListGroupItem>
+                            <ListGroupItem key={4} header="Games Played" className="text-primary" >No data available</ListGroupItem>
+                            <ListGroupItem key={6} header="Website" className="text-primary" >{this.props.team && this.props.team.website}</ListGroupItem>
+                            <ListGroupItem key={7} header="Created" className="text-primary" >{this.props.team && moment(this.props.team.createdAt).calendar()}</ListGroupItem>
+                        </ListGroup>
+
+                    </Col>
+
+                    <Col xsHidden smHidden md={4}>
+
+                        {/* Emblem */} 
+                        <div id="teams-view-emblem">
+                            <FontAwesome name="users" />                                  
+                        </div>
+
+                        {/* Team description */}       
+                        { 
+                            this.props.team && this.props.team.description ?  
+                                <blockquote className="blockquote">
+                                    { this.props.team.description }
+                                </blockquote>
+                            : ''
+                        }
+                    </Col>
+                </Row>
+
+            </div>
+        );
+    }
+}
 
 ViewTeam.propTypes = {
     loading: PropTypes.bool.isRequired,
     match: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
     team: PropTypes.object.isRequired,
-    currentTeam: PropTypes.object
+    currentTeam: PropTypes.object,
+    applicant: PropTypes.object,
 };
 
 export default createContainer(({ match }) => {
@@ -181,6 +371,7 @@ export default createContainer(({ match }) => {
     return {
         loading: !subscription.ready(),
         team: TeamsCollection.findOne(teamId) || {},
-        currentTeam: currentTeam(),
+        currentTeam: TeamsCollection.findOne({ members: { $in: [Meteor.userId()] } }),
+        applicant: TeamsCollection.findOne({ applications: { $in: [Meteor.userId()] } }),
     };
 }, ViewTeam);

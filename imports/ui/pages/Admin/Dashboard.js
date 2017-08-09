@@ -128,10 +128,10 @@ class Dashboard extends React.Component {
                             <Col sm={12} md={3}>
                                 <h4>Members</h4>
 
-                                <Button bsStyle="success" block onClick={() => history.push('/members/new')}>
+                                <Button bsStyle="success" block onClick={() => history.push('/community/members/new')}>
                                     New Member
                                 </Button>
-                                <Button bsStyle="default" block onClick={() => history.push('/members')}>
+                                <Button bsStyle="default" block onClick={() => history.push('/community')}>
                                     Member list
                                 </Button>
                             </Col>

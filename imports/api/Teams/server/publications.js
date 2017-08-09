@@ -21,12 +21,14 @@ publishComposite('teams.view', function teamsView(teamId) {
             {
                 find: function (team) {
                     
-                    return Meteor.users.find({
+                    return Meteor.users.find(
+                        {
                             _id: { $in: team.members } 
                         },
                         { 
                             fields: { profile: 1 } 
-                    });
+                        }
+                    );
                 }
             }
         ]
@@ -44,8 +46,8 @@ publishComposite('teams.list', {
             find: function (team) {
                 return Meteor.users.find(
                     { _id: team.owner },
-                    { fields: { profile: 1 } 
-                });
+                    { fields: { profile: 1 } }
+                );
             }
         }
     ]

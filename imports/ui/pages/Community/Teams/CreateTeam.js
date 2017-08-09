@@ -93,7 +93,7 @@ class CreateTeam extends React.Component {
             const confirmation = existingTeam ? 'Team updated!' : 'Team added!';
             this.form.reset();
             Bert.alert(confirmation, 'success');
-            history.push(`/teams/${teamId}`);
+            history.push(`/community/teams/${teamId}`);
           }
         });
     }

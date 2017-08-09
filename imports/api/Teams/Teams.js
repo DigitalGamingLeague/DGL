@@ -72,6 +72,15 @@ Teams.schema = new SimpleSchema({
     "members.$": {
         type: String
     },
+    
+    applications: {
+        type: Array,
+        label: 'Users requesting to join the team.',
+        optional: true,
+    },
+    "applications.$": {
+        type: String
+    },
 });
 
 Teams.attachSchema(Teams.schema);
